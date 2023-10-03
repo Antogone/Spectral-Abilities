@@ -1,0 +1,102 @@
+#########################
+Magie Spectrale
+#########################
+
+Ghost Form (Devient fantome) (Modde Spectateur pendant 5 secondes)
+-> schedule + spectateur
+
+Invisibility 
+-> donne un tag, quand on l'utilise on ne peux utilise que possesion ou invisibility 
+
+
+Hybrid Ghost (Vol + Intangibilité) (Slow Falling + Resistance Infini)
+-> quand activé change la couleur ? 
+-> rechargement magique arreter via tag + reduction de 1 par seconde ? 
+
+Ectoplasmic projection (Coup d'energie spectrale)
+classique rayon
+
+Haunting (Hante les entitées aux alentours; degats)
+
+
+Possesion (Prend possesion d'une entitée; degats small)
+Small degat + invisibility + teleportation 
+
+
+PASSIF : 
+Mind reading or telepathy
+Temperature manipulation (cold feet)
+
+
+#########################
+Techniques
+#########################
+
+Activation des pouvoirs via drop d'objet ou sneak maintenue an slot dernier ?
+scoreboard selector et/ou item selector
+
+quand invisible => item et armure stored dans une Armorstand loin
+
+
+
+
+
+
+
+cloud0  Aura_Explosion
+cloud1  Green_Fireball
+cloud2 Immobilization
+cloud3 Poofing
+cloud4  True_Sight
+
+
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Aura_Explosion
+execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Green_Fireball
+execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Immobilization
+execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Poofing
+execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave True_Sight
+
+
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Aura_Explosion
+execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Green_Fireball
+execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team join nochoice Immobilization
+execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team join nochoice Poofing
+execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join nochoice True_Sight
+
+
+
+scoreboard players set @a sneak 0
+scoreboard players set @a[tag=wicked,limit=1] cloud2 0
+
+
+execute as @a[scores={magie=..4},tag=wicked] run tellraw @s {"text":"You don't have enough magic to cast the spell !","color":"dark_green"}
+execute as @a[scores={magie=5..},tag=wicked] run scoreboard players remove @s magie 5
+
+team leave Green_Fireball
+team join cooldown Green_Fireball
+scoreboard players set @a[tag=wicked,limit=1] cloud2 4
+scoreboard players set @a[tag=wicked,limit=1] nuage1 1
+scoreboard players set @a sneak 0
+
+#############################################################################################################################
+
+    Invisibility
+    Phasing through solid objects
+    Levitation
+    Telekinesis (moving objects with the mind)
+    Possession of living beings
+    Ghostly apparitions
+    Intangibility (passing through physical barriers)
+    Ectoplasmic projection
+    Teleportation
+    Time manipulation
+    Electromagnetic interference
+    Haunting and poltergeist activity
+    Mind reading or telepathy
+    Residual energy manifestation
+    Temperature manipulation (creating cold spots)
+    Shadow manipulation
+    Ethereal communication
+    Precognition (seeing future events)
+    Retrocognition (seeing past events)
+    Psychic attacks
