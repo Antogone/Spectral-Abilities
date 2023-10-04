@@ -24,18 +24,18 @@ team add cooldown
 team modify cooldown color dark_red
 
 scoreboard objectives add splch dummy
-scoreboard objectives modify splch displayname [{"text":"\u2582","color":"#298e09"},{"text":"\u2583","color":"#3db118"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2586","color":"#48d71a"},{"text":" Spectral Abilities ","color":"#a2ec8a"},{"text":"\u2586","color":"#48d71a"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2583","color":"#3db118"},{"text":"\u2582","color":"#298e09"}]
+scoreboard objectives modify splch displayname [{"text":"\u2582","color":"#298e09"},{"text":"\u2583","color":"#3db118"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2586","color":"#48d71a"},{"text":"Abilities","color":"#a2ec8a"},{"text":"\u2586","color":"#48d71a"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2583","color":"#3db118"},{"text":"\u2582","color":"#298e09"}]
 
-scoreboard players set Poofing splch 1
-scoreboard players set Green_Fireball splch 1
-scoreboard players set Immobilization splch 1
-scoreboard players set Ghost_Form splch 1
-scoreboard players set True_Sight splch 1
+scoreboard players set Haunting splch 1
+scoreboard players set Invisibility splch 3
+scoreboard players set Hybrid_Form splch 2
+scoreboard players set Ghost_Form splch 4
+scoreboard players set Possession splch 0
 
-team join nochoice Poofing
-team join nochoice Green_Fireball
-team join nochoice Immobilization
-team join nochoice True_Sight
+team join nochoice Haunting
+team join nochoice Invisibility
+team join nochoice Hybrid_Form
+team join nochoice Possession
 team join nochoice Ghost_Form
 
 execute as @s run scoreboard objectives add cloud1 dummy

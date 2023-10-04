@@ -2,8 +2,7 @@
 Magie Spectrale
 #########################
 
-Ghost Form (Devient fantome) (Modde Spectateur pendant 5 secondes)
--> schedule + spectateur
+Ghost Form
 
 Invisibility 
 -> donne un tag, quand on l'utilise on ne peux utilise que possesion ou invisibility 
@@ -11,9 +10,13 @@ Invisibility
 
 Hybrid Ghost (Vol + Intangibilité) (Slow Falling + Resistance Infini)
 -> quand activé change la couleur ? 
--> rechargement magique arreter via tag + reduction de 1 par seconde ? 
+-> rechargement magique arreter via tag + reduction de 1 par seconde ?
+    -> Passive : Temperature manipulation (cold feet)
 
-Ectoplasmic projection (Coup d'energie spectrale)
+
+
+
+Ectoplasmic Projection (Coup d'energie spectrale)
 classique rayon
 
 Haunting (Hante les entitées aux alentours; degats)
@@ -21,6 +24,7 @@ Haunting (Hante les entitées aux alentours; degats)
 
 Possesion (Prend possesion d'une entitée; degats small)
 Small degat + invisibility + teleportation 
+    -> Mind reading or telepathy
 
 
 PASSIF : 
@@ -44,24 +48,24 @@ quand invisible => item et armure stored dans une Armorstand loin
 
 
 cloud0  Ghost_Form
-cloud1  Green_Fireball
-cloud2 Immobilization
-cloud3 Poofing
-cloud4  True_Sight
+cloud1  Invisibility
+cloud2 Hybrid_Form
+cloud3 Haunting
+cloud4  Possession
 
 
 execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ghost_Form
-execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Green_Fireball
-execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Immobilization
-execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Poofing
-execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave True_Sight
+execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Invisibility
+execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Hybrid_Form
+execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Haunting
+execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave Possession
 
 
 execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ghost_Form
-execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Green_Fireball
-execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team join nochoice Immobilization
-execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team join nochoice Poofing
-execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join nochoice True_Sight
+execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Invisibility
+execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team join nochoice Hybrid_Form
+execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team join nochoice Haunting
+execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join nochoice Possession
 
 
 
@@ -72,8 +76,8 @@ scoreboard players set @a[tag=wicked,limit=1] cloud2 0
 execute as @a[scores={magie=..4},tag=wicked] run tellraw @s {"text":"You don't have enough magic to cast the spell !","color":"dark_green"}
 execute as @a[scores={magie=5..},tag=wicked] run scoreboard players remove @s magie 5
 
-team leave Green_Fireball
-team join cooldown Green_Fireball
+team leave Invisibility
+team join cooldown Invisibility
 scoreboard players set @a[tag=wicked,limit=1] cloud2 4
 scoreboard players set @a[tag=wicked,limit=1] nuage1 1
 scoreboard players set @a sneak 0
