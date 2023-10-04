@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+    "minecraft:shulker_bullet",
+    "minecraft:potion",
+    "minecraft:llama_spit"
+]
+    }

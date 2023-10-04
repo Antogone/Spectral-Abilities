@@ -44,7 +44,10 @@ quand invisible => item et armure stored dans une Armorstand loin
 
 
 
-
+cloud0  Ectoplasmic_Ray
+cloud1  Mind_Reading
+cloud2 Flight
+cloud3 Normal_Form
 
 
 cloud0  Ghost_Form

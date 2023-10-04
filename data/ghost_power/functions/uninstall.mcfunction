@@ -17,6 +17,10 @@ scoreboard objectives remove nuage0
 scoreboard objectives remove nuage2
 scoreboard objectives remove nuage3
 scoreboard objectives remove nuage1
+scoreboard objectives remove mind
+scoreboard objectives remove mindPos0
+scoreboard objectives remove mindPos1
+scoreboard objectives remove mindPos2
 
 team remove nochoice
 team remove choice
@@ -32,5 +36,8 @@ tag @s remove crea
 tag @s remove adv
 tag @s remove surv
 tag @s remove ghost
+tag @s remove inv
+tag @s remove no_inv
 
 scoreboard objectives remove timer
+forceload remove -30000000 1600
