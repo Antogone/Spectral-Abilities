@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
-        "ghost_power:main"
+        "ghost_power:main",
+        "ghost_power:timer"
     ]
 }

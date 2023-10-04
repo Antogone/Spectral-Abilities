@@ -26,3 +26,11 @@ scoreboard objectives remove splch
 scoreboard objectives remove sneak
 scoreboard objectives remove energy
 scoreboard objectives remove recharge
+
+
+tag @s remove crea
+tag @s remove adv
+tag @s remove surv
+tag @s remove ghost
+
+scoreboard objectives remove timer

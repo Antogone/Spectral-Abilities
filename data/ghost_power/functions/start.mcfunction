@@ -24,19 +24,19 @@ team add cooldown
 team modify cooldown color dark_red
 
 scoreboard objectives add splch dummy
-scoreboard objectives modify splch displayname [{"text":"\u2582","color":"#298e09"},{"text":"\u2583","color":"#3db118"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2586","color":"#48d71a"},{"text":" Spells ","color":"#a2ec8a"},{"text":"\u2586","color":"#48d71a"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2583","color":"#3db118"},{"text":"\u2582","color":"#298e09"}]
+scoreboard objectives modify splch displayname [{"text":"\u2582","color":"#298e09"},{"text":"\u2583","color":"#3db118"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2586","color":"#48d71a"},{"text":" Spectral Abilities ","color":"#a2ec8a"},{"text":"\u2586","color":"#48d71a"},{"text":"\u2585","color":"#43c11a"},{"text":"\u2583","color":"#3db118"},{"text":"\u2582","color":"#298e09"}]
 
 scoreboard players set Poofing splch 1
 scoreboard players set Green_Fireball splch 1
 scoreboard players set Immobilization splch 1
-scoreboard players set Aura_Explosion splch 1
+scoreboard players set Ghost_Form splch 1
 scoreboard players set True_Sight splch 1
 
 team join nochoice Poofing
 team join nochoice Green_Fireball
 team join nochoice Immobilization
 team join nochoice True_Sight
-team join nochoice Aura_Explosion
+team join nochoice Ghost_Form
 
 execute as @s run scoreboard objectives add cloud1 dummy
 execute as @s run scoreboard players set @s cloud1 0
@@ -75,6 +75,8 @@ execute as @s run scoreboard objectives add energy dummy
 scoreboard players set @s energy 100
 
 execute as @s run scoreboard objectives add recharge dummy
-
+execute as @s run scoreboard objectives add timer dummy
+bossbar add timer {"text":"Temps restant","color":"red"}
+bossbar set timer color red 
 
 scoreboard objectives setdisplay sidebar splch

@@ -43,21 +43,21 @@ quand invisible => item et armure stored dans une Armorstand loin
 
 
 
-cloud0  Aura_Explosion
+cloud0  Ghost_Form
 cloud1  Green_Fireball
 cloud2 Immobilization
 cloud3 Poofing
 cloud4  True_Sight
 
 
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Aura_Explosion
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ghost_Form
 execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Green_Fireball
 execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Immobilization
 execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Poofing
 execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave True_Sight
 
 
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Aura_Explosion
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ghost_Form
 execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Green_Fireball
 execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team join nochoice Immobilization
 execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team join nochoice Poofing
