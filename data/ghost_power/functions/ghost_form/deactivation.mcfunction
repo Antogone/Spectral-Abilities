@@ -16,4 +16,3 @@ tag @a[tag=spectral] remove crea
 tag @a[tag=spectral] remove surv
 tag @a[tag=spectral] remove adv
 tag @a[tag=spectral] remove ghost
-execute as @p run say ICI

@@ -21,12 +21,15 @@ scoreboard objectives remove mind
 scoreboard objectives remove mindPos0
 scoreboard objectives remove mindPos1
 scoreboard objectives remove mindPos2
+scoreboard objectives remove timehunt
 
 team remove nochoice
 team remove choice
 team remove cooldown
 
 scoreboard objectives remove splch 
+scoreboard objectives remove splch2
+
 scoreboard objectives remove sneak
 scoreboard objectives remove energy
 scoreboard objectives remove recharge
@@ -38,6 +41,7 @@ tag @s remove surv
 tag @s remove ghost
 tag @s remove inv
 tag @s remove no_inv
+tag @s remove spectral
 
 scoreboard objectives remove timer
 forceload remove -30000000 1600

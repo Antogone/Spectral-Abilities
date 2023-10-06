@@ -21,7 +21,7 @@ scoreboard players set @a[tag=spectral] timer 0
 execute at @p[tag=spectral,limit=1] run particle glow ^ ^ ^ 0.5 -1 0.5 0.001 100 force
 execute at @p[tag=spectral,limit=1] run particle cloud ^ ^ ^ 0.5 -1 0.5 0.05 1000 force
 execute as @a[tag=spectral,limit=1] at @s run gamemode spectator @s
-schedule function ghost_power:ghost_form/deactivation 5s
+schedule function ghost_power:ghost_form/deactivation 8s
 
 team leave Ghost_Form
 team join cooldown Ghost_Form

@@ -1,35 +1,15 @@
-#########################
-Magie Spectrale
-#########################
-
-Ghost Form
-
-Invisibility 
--> donne un tag, quand on l'utilise on ne peux utilise que possesion ou invisibility 
-
-
-Hybrid Ghost (Vol + Intangibilité) (Slow Falling + Resistance Infini)
--> quand activé change la couleur ? 
--> rechargement magique arreter via tag + reduction de 1 par seconde ?
-    -> Passive : Temperature manipulation (cold feet)
 
 
 
-
-Ectoplasmic Projection (Coup d'energie spectrale)
-classique rayon
+Ghost_Parade
+Zone dans laquelle tu rentres tu prends des degats dure quelques secondes 
 
 Haunting (Hante les entitées aux alentours; degats)
-
+-> effet du elder guardian + mining fatigue + weakness + slowness + degat toute les 5 secondes (differents schedule)
 
 Possesion (Prend possesion d'une entitée; degats small)
-Small degat + invisibility + teleportation 
-    -> Mind reading or telepathy
+degat en entrée et en sortie (sortie via Possesion)
 
-
-PASSIF : 
-Mind reading or telepathy
-Temperature manipulation (cold feet)
 
 
 #########################
@@ -44,7 +24,7 @@ quand invisible => item et armure stored dans une Armorstand loin
 
 
 
-cloud0  Ectoplasmic_Ray
+cloud0  Ghost_Parade
 cloud1  Mind_Reading
 cloud2 Flight
 cloud3 Normal_Form
@@ -57,53 +37,6 @@ cloud3 Haunting
 cloud4  Possession
 
 
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ghost_Form
-execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Invisibility
-execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Hybrid_Form
-execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Haunting
-execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave Possession
 
 
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ghost_Form
-execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Invisibility
-execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team join nochoice Hybrid_Form
-execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team join nochoice Haunting
-execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join nochoice Possession
-
-
-
-scoreboard players set @a sneak 0
-scoreboard players set @a[tag=wicked,limit=1] cloud2 0
-
-
-execute as @a[scores={magie=..4},tag=wicked] run tellraw @s {"text":"You don't have enough magic to cast the spell !","color":"dark_green"}
-execute as @a[scores={magie=5..},tag=wicked] run scoreboard players remove @s magie 5
-
-team leave Invisibility
-team join cooldown Invisibility
-scoreboard players set @a[tag=wicked,limit=1] cloud2 4
-scoreboard players set @a[tag=wicked,limit=1] nuage1 1
-scoreboard players set @a sneak 0
-
-#############################################################################################################################
-
-    Invisibility
-    Phasing through solid objects
-    Levitation
-    Telekinesis (moving objects with the mind)
-    Possession of living beings
-    Ghostly apparitions
-    Intangibility (passing through physical barriers)
-    Ectoplasmic projection
-    Teleportation
-    Time manipulation
-    Electromagnetic interference
-    Haunting and poltergeist activity
-    Mind reading or telepathy
-    Residual energy manifestation
-    Temperature manipulation (creating cold spots)
-    Shadow manipulation
-    Ethereal communication
-    Precognition (seeing future events)
-    Retrocognition (seeing past events)
-    Psychic attacks
+cooldown lié : problematic : separée les cloud
