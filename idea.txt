@@ -1,23 +1,7 @@
 
-Possesion (Prend possesion d'une entitée; degats small)
-degat en entrée et en sortie (sortie via Possesion)
-
-
-prendre en compte que on peut utiliser que ghost form ou hybrid form
-=> declanche la sortie de la Possession
-
-
-
-
-
-
-cooldown lié : problematic : separée les cloud
-
-
-
 Achievement 
 CRAFT
-GHOST ZOMBIES ???
+
 
 
 Creation du vampire ? Sorcière ? Loup-Garou ?

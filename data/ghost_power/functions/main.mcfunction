@@ -151,6 +151,8 @@ execute as @a[tag=spectral,tag=no_inv,tag=!hybrid,tag=!pos,limit=1,scores={energ
 effect give @p[tag=spectral,tag=inv] invisibility 5 5 true
 
 ### POSSESSION
+execute if entity @a[tag=pos] unless entity @e[tag=possessed] run function ghost_power:possession/fin_possession
+
 execute as @a[tag=pos] at @s run teleport @e[tag=possessed] @s
 
 effect give @a[tag=w_pos] conduit_power 5 14 true
