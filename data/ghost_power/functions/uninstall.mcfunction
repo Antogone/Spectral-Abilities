@@ -33,6 +33,7 @@ scoreboard objectives remove splch2
 scoreboard objectives remove sneak
 scoreboard objectives remove energy
 scoreboard objectives remove recharge
+scoreboard objectives remove steps
 
 
 tag @s remove crea

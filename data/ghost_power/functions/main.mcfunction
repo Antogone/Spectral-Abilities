@@ -44,6 +44,9 @@ execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Hy
 execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Haunting
 execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave Possession
 
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ectoplasmic_Ray
+execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ectoplasmic_Ray
+
 
 execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ghost_Form
 execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team join nochoice Invisibility
@@ -85,11 +88,11 @@ execute if score @a[tag=spectral,limit=1] energy matches 0..19 run team join coo
 execute if score @a[tag=spectral,limit=1] energy matches 0..14 run team join cooldown Ghost_Form
 
 
-execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team leave Ghost_Parade
+execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team leave Ectoplasmic_Ray
 execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team leave Mind_Reading
 
 execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team join cooldown Mind_Reading
-execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team join cooldown Ghost_Parade
+execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team join cooldown Ectoplasmic_Ray
 
 
 

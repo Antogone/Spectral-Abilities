@@ -1,7 +1,7 @@
 
 
 
-Ghost_Parade
+Ectoplasmic_Ray
 Zone dans laquelle tu rentres tu prends des degats dure quelques secondes 
 
 Haunting (Hante les entitées aux alentours; degats)
@@ -24,7 +24,7 @@ quand invisible => item et armure stored dans une Armorstand loin
 
 
 
-cloud0  Ghost_Parade
+cloud0  Ectoplasmic_Ray
 cloud1  Mind_Reading
 cloud2 Flight
 cloud3 Normal_Form

@@ -41,13 +41,13 @@ scoreboard players set Possession splch 0
 scoreboard players set Normal_Form splch2 1
 scoreboard players set Flight splch2 2
 scoreboard players set Mind_Reading splch2 3
-scoreboard players set Ghost_Parade splch2 4
+scoreboard players set Ectoplasmic_Ray splch2 4
 
 
 team join nochoice Normal_Form
 team join nochoice Flight
 team join nochoice Mind_Reading
-team join nochoice Ghost_Parade
+team join nochoice Ectoplasmic_Ray
 
 team join nochoice Haunting
 team join nochoice Invisibility
@@ -90,6 +90,7 @@ scoreboard objectives add mindPos0 dummy
 scoreboard objectives add mindPos1 dummy
 scoreboard objectives add mindPos2 dummy
 scoreboard objectives add timehunt dummy
+scoreboard objectives add steps dummy
 
 
 
