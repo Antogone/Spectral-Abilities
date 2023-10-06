@@ -15,12 +15,12 @@ execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join noc
 
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team leave Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 1..14 run team leave Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 1..19 run team leave Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 1..19 run team leave Possession
 execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team leave Ghost_Form
 
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cooldown Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 1..14 run team join cooldown Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 1..19 run team join cooldown Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 1..19 run team join cooldown Possession
 execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join cooldown Ghost_Form
 
 
@@ -28,5 +28,6 @@ execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join coo
 execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1] at @s run tag @s add hybrid
 execute as @a[tag=spectral,tag=hybrid,tag=inv,limit=1] at @s run function ghost_power:invisibility/normal
 execute as @a[tag=spectral,tag=hybrid] run function ghost_power:item_store/recup
+execute as @a[tag=spectral,tag=pos,tag=hybrid,limit=1] at @s run function ghost_power:possession/fin_possession
 
 scoreboard players set @a sneak 0

@@ -11,6 +11,9 @@ execute as @a[scores={energy=15..},tag=spectral] run scoreboard players remove @
 tag @p[tag=spectral,tag=no_inv] add inv 
 tag @p[tag=spectral,tag=no_inv] remove no_inv
 
+execute as @a[tag=pos,limit=1] at @s run function ghost_power:possession/fin_possession
+
+
 effect give @p[tag=spectral,tag=inv] invisibility 5 5 true
 execute as @a[tag=spectral] run function ghost_power:item_store/recup
 

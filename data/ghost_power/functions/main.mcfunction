@@ -37,6 +37,10 @@ execute as @a[tag=spectral,limit=1,scores={cloud3=4}] if score @s nuage3 matches
 execute as @a[tag=spectral,limit=1,scores={cloud4=4}] if score @s nuage4 matches 800 run function ghost_power:cooldown/cd4
 
 
+execute as @a[tag=spectral,limit=1,scores={nivulu0=4}] if score @s nuage0 matches 400 run function ghost_power:cooldown/cd0-h
+execute as @a[tag=spectral,limit=1,scores={nivulu1=4}] if score @s nuage1 matches 100 run function ghost_power:cooldown/cd1-h
+
+
 ### AFFICHAGE 
 execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ghost_Form
 execute unless score @a[tag=spectral,limit=1] cloud1 matches 4 run team leave Invisibility
@@ -44,8 +48,12 @@ execute unless score @a[tag=spectral,limit=1] cloud2 matches 4 run team leave Hy
 execute unless score @a[tag=spectral,limit=1] cloud3 matches 4 run team leave Haunting
 execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave Possession
 
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team leave Ectoplasmic_Ray
-execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ectoplasmic_Ray
+execute unless score @a[tag=spectral,limit=1] nivulu0 matches 4 run team leave Ectoplasmic_Ray
+execute unless score @a[tag=spectral,limit=1] nivulu0 matches 4 run team join nochoice Ectoplasmic_Ray
+
+
+execute unless score @a[tag=spectral,limit=1] nivulu1 matches 4 run team leave Mind_Reading
+execute unless score @a[tag=spectral,limit=1] nivulu1 matches 4 run team join nochoice Mind_Reading
 
 
 execute unless score @a[tag=spectral,limit=1] cloud0 matches 4 run team join nochoice Ghost_Form
@@ -61,15 +69,15 @@ execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud0 matches 4 run e
 execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud1 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/slot1
 execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud2 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/slot2
 execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud3 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/slot3
+
 execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud4 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:4},limit=1] run function ghost_power:slot/slot4
 
 
-
 ### HYBRID SLOT
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] cloud0 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/hybrid/slot0
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] cloud1 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/hybrid/slot1
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] cloud2 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/hybrid/slot2
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] cloud3 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/hybrid/slot3
+execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu0 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/hybrid/slot0
+execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu1 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/hybrid/slot1
+execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/hybrid/slot2
+execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/hybrid/slot3
 
 
 
@@ -78,13 +86,13 @@ execute unless score @a[tag=spectral,tag=hybrid,limit=1] cloud3 matches 4 run ex
 ### INDISPONIBILITE SUITE A MANQUE ENERGY
 execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team leave Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 0..14 run team leave Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 0..19 run team leave Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 0..19 run team leave Possession
 execute if score @a[tag=spectral,limit=1] energy matches 0..14 run team leave Ghost_Form
 
 
 execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team join cooldown Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 0..14 run team join cooldown Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 0..19 run team join cooldown Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 0..19 run team join cooldown Possession
 execute if score @a[tag=spectral,limit=1] energy matches 0..14 run team join cooldown Ghost_Form
 
 
@@ -121,18 +129,41 @@ execute if score @a[tag=spectral,limit=1,scores={active=0}] recharge matches 10.
 execute if score @a[tag=spectral,limit=1,scores={active=0}] recharge matches 10..100 run execute as @a[tag=spectral,scores={active=0,recharge=10..}] run scoreboard players set @s recharge 0
 
 
+execute if score @a[tag=hybrid,limit=1,scores={active=1}] recharge matches 80..80 run execute as @a[tag=hybrid,scores={active=1,recharge=80}] run scoreboard players add @a[tag=spectral,tag=hybrid,limit=1,scores={energy=..99}] energy 1
+execute if score @a[tag=hybrid,limit=1,scores={active=1}] recharge matches 80..100 run execute as @a[tag=hybrid,scores={active=1,recharge=80..}] run scoreboard players set @s recharge 0
+
 execute if score @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1}] recharge matches 60..60 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1,recharge=60}] run scoreboard players add @a[tag=spectral,tag=!hybrid,limit=1,scores={energy=..99}] energy 1
 execute if score @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1}] recharge matches 60..100 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1,recharge=60..}] run scoreboard players set @s recharge 0
 
-scoreboard players set @a[tag=spectral,limit=1,scores={recharge=60..}] recharge 0
+
+scoreboard players set @a[tag=spectral,tag=!hybrid,limit=1,scores={recharge=60..}] recharge 0
+scoreboard players set @a[tag=spectral,tag=hybrid,limit=1,scores={recharge=80..}] recharge 0
+
+
+
 
 ### PARTICLE RECHARGEMENT
-execute as @a[tag=spectral,tag=no_inv,tag=!hybrid,limit=1,scores={energy=0..99,active=0..},nbt=!{playerGameType:3}] at @s if score @s energy matches 0..99 run particle end_rod ^ ^ ^ 0.3 1 0.3 0.05 1 force
+execute as @a[tag=spectral,tag=no_inv,tag=!hybrid,tag=!pos,limit=1,scores={energy=0..99,active=0..},nbt=!{playerGameType:3}] at @s if score @s energy matches 0..99 run particle end_rod ^ ^ ^ 0.3 1 0.3 0.05 1 force
 
 
 
 ### Invisibility
 effect give @p[tag=spectral,tag=inv] invisibility 5 5 true
+
+### POSSESSION
+execute as @a[tag=pos] at @s run teleport @e[tag=possessed] @s
+
+effect give @a[tag=w_pos] conduit_power 5 14 true
+effect give @a[tag=w_pos] water_breathing 5 255 true
+effect give @a[tag=w_pos] dolphins_grace 5 14 true
+
+effect give @a[tag=f_pos] fire_resistance 5 255 true
+
+effect give @a[tag=pos] resistance 5 255 true
+effect give @a[tag=pos] regeneration 5 255 true
+effect give @a[tag=pos] saturation 5 255 true
+effect give @a[tag=pos] invisibility 5 255 true
+
 
 
 

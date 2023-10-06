@@ -16,6 +16,7 @@ execute as @a[tag=spectral,nbt={playerGameType:2}] run tag @s add adv
 execute as @a[tag=spectral] run tag @s add ghost
 scoreboard players set @a[tag=spectral] timer 0
 
+execute as @a[tag=pos,limit=1] at @s run function ghost_power:possession/fin_possession
 
 
 execute at @p[tag=spectral,limit=1] run particle glow ^ ^ ^ 0.5 -1 0.5 0.001 100 force

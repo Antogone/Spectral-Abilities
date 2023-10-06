@@ -85,6 +85,16 @@ execute as @s run scoreboard players set @s nuage2 0
 execute as @s run scoreboard objectives add nuage3 dummy
 execute as @s run scoreboard players set @s nuage3 0
 
+team add possession 
+team modify possession collisionRule never
+
+
+execute as @s run scoreboard objectives add nivulu0 dummy
+execute as @s run scoreboard players set @s nivulu0 0
+
+execute as @s run scoreboard objectives add nivulu1 dummy
+execute as @s run scoreboard players set @s nivulu1 0
+
 scoreboard objectives add mind dummy
 scoreboard objectives add mindPos0 dummy
 scoreboard objectives add mindPos1 dummy

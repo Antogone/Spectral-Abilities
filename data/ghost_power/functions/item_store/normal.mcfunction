@@ -5,7 +5,7 @@
  # Created by .
 ##
 item replace entity @a[tag=spectral,tag=inv,limit=1] hotbar.1 from entity @e[tag=hold2,limit=1] weapon.mainhand
-item replace entity @a[tag=spectral,tag=posses,limit=1] hotbar.4 from entity @e[tag=hold2,limit=1] weapon.mainhand
+item replace entity @a[tag=spectral,tag=pos,limit=1] hotbar.4 from entity @e[tag=hold2,limit=1] weapon.mainhand
 
 item replace entity @a[tag=spectral,limit=1] armor.head from entity @e[tag=hold2,limit=1] armor.head
 item replace entity @a[tag=spectral,limit=1] armor.chest from entity @e[tag=hold2,limit=1] armor.chest

@@ -15,20 +15,17 @@ team join choice Possession
 
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team leave Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 1..14 run team leave Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 1..19 run team leave Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 1..19 run team leave Possession
 execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team leave Ghost_Form
 
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cooldown Haunting
 execute if score @a[tag=spectral,limit=1,tag=no_inv] energy matches 1..14 run team join cooldown Invisibility
-execute if score @a[tag=spectral,limit=1] energy matches 1..19 run team join cooldown Possession
+execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 1..19 run team join cooldown Possession
 execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join cooldown Ghost_Form
 
 
-# execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!#dontharm] at @s run particle cloud ^ ^0.4 ^ 0 0.4 0 0.05 1 force @a[tag=spectral]
-
-
-execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1] at @s run function ghost_power:possession/activation
-
-# execute as @a[tag=wicked,limit=1] at @s positioned ^ ^ ^6 run function castfix
+execute as @a[tag=spectral,tag=!pos,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!player,type=!#dontharm,tag=!haunted,tag=!spectral,limit=1,sort=nearest] at @s run particle cloud ^ ^0.4 ^ 0 0.4 0 0.05 1 force @a[tag=spectral]
+execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,tag=!pos,limit=1] at @s run function ghost_power:possession/activation
+execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=pos,limit=1] at @s run function ghost_power:possession/fin_possession
 
 scoreboard players set @a[tag=spectral,limit=1] sneak 0

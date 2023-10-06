@@ -1,42 +1,23 @@
 
-
-
-Ectoplasmic_Ray
-Zone dans laquelle tu rentres tu prends des degats dure quelques secondes 
-
-Haunting (Hante les entitées aux alentours; degats)
--> effet du elder guardian + mining fatigue + weakness + slowness + degat toute les 5 secondes (differents schedule)
-
 Possesion (Prend possesion d'une entitée; degats small)
 degat en entrée et en sortie (sortie via Possesion)
 
 
-
-#########################
-Techniques
-#########################
-
-Activation des pouvoirs via drop d'objet ou sneak maintenue an slot dernier ?
-scoreboard selector et/ou item selector
-
-quand invisible => item et armure stored dans une Armorstand loin
+prendre en compte que on peut utiliser que ghost form ou hybrid form
+=> declanche la sortie de la Possession
 
 
-
-
-cloud0  Ectoplasmic_Ray
-cloud1  Mind_Reading
-cloud2 Flight
-cloud3 Normal_Form
-
-
-cloud0  Ghost_Form
-cloud1  Invisibility
-cloud2 Hybrid_Form
-cloud3 Haunting
-cloud4  Possession
 
 
 
 
 cooldown lié : problematic : separée les cloud
+
+
+
+Achievement 
+CRAFT
+GHOST ZOMBIES ???
+
+
+Creation du vampire ? Sorcière ? Loup-Garou ?

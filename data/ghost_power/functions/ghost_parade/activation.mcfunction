@@ -4,4 +4,4 @@
  #
  # Created by .
 ##
-say a
+say ghost_parade
