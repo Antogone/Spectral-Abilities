@@ -137,8 +137,8 @@ effect give @p[tag=spectral,tag=inv] invisibility 5 5 true
 
 
 ### Hybrid
-effect give @a[tag=hybrid] jump_boost 5 2 true
-effect give @a[tag=hybrid] slow_falling 5 2 true
+effect give @a[tag=spectral,scores={active=1}] jump_boost 5 2 true
+effect give @a[tag=spectral,scores={active=1}] slow_falling 5 2 true
 effect give @a[tag=hybrid] resistance 5 255 true
 effect give @a[tag=hybrid] night_vision 15 255 true
 effect give @a[tag=hybrid] saturation 2 255 true

@@ -17,5 +17,5 @@ execute as @e[tag=ray,limit=1,sort=nearest] run function ghost_power:ectoplasmic
 team leave Ectoplasmic_Ray
 team join cooldown Ectoplasmic_Ray
 scoreboard players set @a[tag=spectral] cloud0 4
-scoreboard players set @a[tag=spectral] nuage0 340
+scoreboard players set @a[tag=spectral] nuage0 370
 scoreboard players set @p[tag=spectral] sneak 0

@@ -1,9 +1,8 @@
 # Move forward according to step size
 tp @s ^ ^ ^0.5
 
-# TEST
-# particle minecraft:dust 0.8 0.808 0.796 1 ^ ^ ^ 0.2 0.2 0.2 10 10 force
-particle end_rod ^ ^ ^ 0.2 0.2 0.2 0.001 10 force
+particle minecraft:dust 0.8 0.808 0.796 1 ^ ^ ^ 0.2 0.2 0.2 10 10 force
+particle glow ^ ^ ^ 0.2 0.2 0.2 0.0001 10 force
 
 execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#dontharm,distance=..2,sort=nearest] run damage @s 4 minecraft:magic by @p[tag=spectral]
 execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#dontharm,distance=..2,sort=nearest] run effect give @s weakness 10 0 true
