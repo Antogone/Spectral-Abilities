@@ -22,10 +22,16 @@ scoreboard objectives remove mindPos0
 scoreboard objectives remove mindPos1
 scoreboard objectives remove mindPos2
 scoreboard objectives remove timehunt
+scoreboard objectives remove nivulu0
+scoreboard objectives remove nivulu1
+
+advancement revoke @s only ghost_power:going_ghost
 
 team remove nochoice
 team remove choice
 team remove cooldown
+team remove spectre
+team remove possession
 
 scoreboard objectives remove splch 
 scoreboard objectives remove splch2

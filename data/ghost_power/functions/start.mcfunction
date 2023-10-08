@@ -15,7 +15,6 @@ execute as @s run scoreboard players set @s active 0
 tag @s add spectral
 tag @s add no_inv
 
-
 team add choice
 team modify choice color green
 
@@ -85,6 +84,9 @@ execute as @s run scoreboard players set @s nuage2 0
 execute as @s run scoreboard objectives add nuage3 dummy
 execute as @s run scoreboard players set @s nuage3 0
 
+team add spectre
+team join spectre @s
+
 team add possession 
 team modify possession collisionRule never
 
@@ -116,3 +118,9 @@ bossbar set timer color red
 
 scoreboard objectives setdisplay sidebar splch
 execute in minecraft:overworld run forceload add -30000000 1600
+
+execute as @s at @s run kill @e[type=stray,distance=..10]
+execute as @s at @s run kill @e[type=item,distance=..3]
+
+execute at @p[tag=spectral] run particle glow ^ ^ ^ 0.5 -1 0.5 0.001 100 force
+execute at @p[tag=spectral] run particle cloud ^ ^ ^ 0.5 -1 0.5 0.05 1000 force
