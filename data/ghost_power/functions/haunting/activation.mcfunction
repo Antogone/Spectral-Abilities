@@ -15,8 +15,8 @@ execute as @a[scores={energy=10..},tag=spectral,tag=valide_haunt] run scoreboard
 
 execute as @a[tag=pos,limit=1] at @s run function ghost_power:possession/fin_possession
 
-execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!#dontharm,tag=!spectral,tag=!haunted] at @s run scoreboard players set @s timehunt 1
-execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!#dontharm,tag=!spectral,tag=!haunted] at @s run tag @s add haunted
+execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!#minecraft:dontharm,tag=!spectral,tag=!haunted] at @s run scoreboard players set @s timehunt 1
+execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!#minecraft:dontharm,tag=!spectral,tag=!haunted] at @s run tag @s add haunted
 
 team leave Haunting
 team join cooldown Haunting

@@ -24,7 +24,7 @@ execute if score @a[tag=spectral,limit=1,tag=!pos] energy matches 1..19 run team
 execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join cooldown Ghost_Form
 
 
-execute as @a[tag=spectral,tag=!pos,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!player,type=!#dontharm,tag=!haunted,tag=!spectral,limit=1,sort=nearest] at @s run particle cloud ^ ^0.4 ^ 0 0.4 0 0.05 1 force @a[tag=spectral]
+execute as @a[tag=spectral,tag=!pos,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!player,type=!ender_dragon,type=!wither,type=!#minecraft:dontharm,tag=!haunted,tag=!spectral,limit=1,sort=nearest] at @s run particle cloud ^ ^0.4 ^ 0 0.4 0 0.05 1 force @a[tag=spectral]
 execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,tag=!pos,limit=1] at @s run function ghost_power:possession/activation
 execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=pos,limit=1] at @s run function ghost_power:possession/fin_possession
 

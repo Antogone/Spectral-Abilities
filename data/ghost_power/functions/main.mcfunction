@@ -10,6 +10,7 @@ item replace entity @a[tag=spectral,scores={active=0}] hotbar.8 with gray_dye{Hi
 
 execute as @a[tag=spectral,tag=!hybrid,scores={drop1=1..,active=1}] run function ghost_power:item_store/normal
 execute as @a[tag=spectral,tag=hybrid,scores={drop1=1..,active=1}] run function ghost_power:hybrid_form/deactivate
+execute as @a[tag=spectral,tag=pos,scores={drop1=1..,active=1}] run function ghost_power:possession/fin_possession
 
 
 execute as @a[tag=spectral,scores={drop1=1..,active=1}] run scoreboard players set @s active 0
@@ -165,6 +166,8 @@ effect give @a[tag=pos] resistance 5 255 true
 effect give @a[tag=pos] regeneration 5 255 true
 effect give @a[tag=pos] saturation 5 255 true
 effect give @a[tag=pos] invisibility 5 255 true
+effect give @a[tag=pos] slow_falling 5 255 true
+execute as @a[tag=fly_pos,nbt={SelectedItemSlot:5}] if score @a[tag=fly_pos,nbt={SelectedItemSlot:5},limit=1] sneak matches 1..2 run function ghost_power:hybrid_form/fly
 
 
 

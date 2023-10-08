@@ -14,6 +14,8 @@ execute as @e[tag=possessed] run tag @s remove possessed
 tag @a[tag=pos] remove w_pos
 tag @a[tag=pos] remove n_pos
 tag @a[tag=pos] remove f_pos
+tag @a[tag=pos] remove fly_pos
+
 tag @a[tag=pos] remove valide_possession
 tag @a[tag=pos] remove pos
 

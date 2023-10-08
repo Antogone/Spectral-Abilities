@@ -4,12 +4,12 @@ tp @s ^ ^ ^0.5
 particle minecraft:dust 0.8 0.808 0.796 1 ^ ^ ^ 0.2 0.2 0.2 10 10 force
 particle glow ^ ^ ^ 0.2 0.2 0.2 0.0001 10 force
 
-execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#dontharm,distance=..2,sort=nearest] run damage @s 4 minecraft:magic by @p[tag=spectral]
-execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#dontharm,distance=..2,sort=nearest] run effect give @s weakness 10 0 true
+execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..2,sort=nearest] run damage @s 10 minecraft:magic by @p[tag=spectral]
+execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..2,sort=nearest] run effect give @s weakness 10 0 true
 
 
 # Check for collisions with Creepers
-execute if entity @e[tag=!ray,tag=!spectral,type=!#dontharm,distance=..1.5] run tag @s add hit
+execute if entity @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..1.5] run tag @s add hit
 
 # Check for collisions with blocks
 execute unless block ~ ~ ~ #minecraft:ray_permeable run tag @s add hitBlock

@@ -4,7 +4,7 @@
  #
  # Created by .
 ##
-execute at @a[tag=spectral] as @a[tag=spectral] run execute if entity @e[tag=!spectral,type=!player,type=!#dontharm,distance=..6,sort=nearest,limit=1] run tag @s add valide_possession
+execute at @a[tag=spectral] as @a[tag=spectral] run execute if entity @e[tag=!spectral,type=!player,type=!#minecraft:dontharm,distance=..6,sort=nearest,limit=1] run tag @s add valide_possession
 execute unless entity @a[tag=valide_possession] run return 0
 
 
@@ -16,7 +16,7 @@ execute as @a[scores={energy=20..},tag=spectral,tag=valide_possession] run score
 
 execute as @a[tag=valide_possession,tag=inv] at @s run function ghost_power:invisibility/normal
 
-execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!player,type=!#dontharm,tag=!spectral,tag=!haunted,limit=1,sort=nearest] at @s run tag @s add possessed
+execute as @a[tag=spectral,limit=1] at @s positioned ^ ^ ^6 run execute as @e[distance=..6,type=!player,type=!ender_dragon,type=!wither,type=!#minecraft:dontharm,tag=!spectral,tag=!haunted,limit=1,sort=nearest] at @s run tag @s add possessed
 tag @a[tag=valide_possession] add pos
 
 execute as @a[tag=pos] run function ghost_power:item_store/recup
@@ -31,7 +31,9 @@ team join possession @a[tag=pos]
 
 execute if entity @e[tag=possessed,type=#minecraft:fire_mob] run tag @e[tag=spectral] add f_pos
 execute if entity @e[tag=possessed,type=#minecraft:water_mob] run tag @e[tag=spectral] add w_pos
-execute if entity @e[tag=possessed,type=!#minecraft:fire_mob,type=!#minecraft:water_mob,type=!#dontharm] run tag @e[tag=spectral] add n_pos
+execute if entity @e[tag=possessed,type=#minecraft:flying_mob] run tag @e[tag=spectral] add fly_pos
+
+execute if entity @e[tag=possessed,type=!#minecraft:fire_mob,type=!#minecraft:water_mob,type=!#minecraft:dontharm] run tag @e[tag=spectral] add n_pos
 
 tag @a[tag=valide_possession] remove valide_possession
 
