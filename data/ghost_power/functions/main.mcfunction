@@ -5,8 +5,8 @@
  # Created by Antogone.
 ##
 
-item replace entity @a[tag=spectral,scores={active=1}] hotbar.8 with lime_dye{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability OFF\"}"}}
-item replace entity @a[tag=spectral,scores={active=0}] hotbar.8 with gray_dye{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability ON\"}"}}
+item replace entity @a[tag=spectral,scores={active=1}] hotbar.8 with lime_dye{HideFlags:3,active_power:0b,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability OFF\"}"}}
+item replace entity @a[tag=spectral,scores={active=0}] hotbar.8 with gray_dye{HideFlags:3,active_power:1b,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability ON\"}"}}
 
 execute as @a[tag=spectral,tag=!hybrid,scores={drop1=1..,active=1}] run function ghost_power:item_store/normal
 execute as @a[tag=spectral,tag=hybrid,scores={drop1=1..,active=1}] run function ghost_power:hybrid_form/deactivate
@@ -17,29 +17,24 @@ execute as @a[tag=spectral,scores={drop1=1..,active=1}] run scoreboard players s
 execute as @a[tag=spectral,scores={drop2=1..,active=0}] run scoreboard players set @s active 1
 
 
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:lime_dye",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability OFF\"}"}}}}]
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:gray_dye",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability ON\"}"}}}}]
-
-
-
-execute as @a[tag=spectral,scores={nuage4=1..}] run scoreboard players add @s nuage4 1
-execute as @a[tag=spectral,scores={nuage0=1..}] run scoreboard players add @s nuage0 1
-execute as @a[tag=spectral,scores={nuage1=1..}] run scoreboard players add @s nuage1 1
-execute as @a[tag=spectral,scores={nuage2=1..}] run scoreboard players add @s nuage2 1
-execute as @a[tag=spectral,scores={nuage3=1..}] run scoreboard players add @s nuage3 1
+scoreboard players add @a[tag=spectral,scores={nuage4=1..}] nuage4 1
+scoreboard players add @a[tag=spectral,scores={nuage0=1..}] nuage0 1
+scoreboard players add @a[tag=spectral,scores={nuage1=1..}] nuage1 1
+scoreboard players add @a[tag=spectral,scores={nuage2=1..}] nuage2 1
+scoreboard players add @a[tag=spectral,scores={nuage3=1..}] nuage3 1
 
 
 
 ### COOLDOWNN
-execute as @a[tag=spectral,limit=1,scores={cloud1=4}] if score @s nuage1 matches 100 run function ghost_power:cooldown/cd1
-execute as @a[tag=spectral,limit=1,scores={cloud0=4}] if score @s nuage0 matches 400 run function ghost_power:cooldown/cd0
-execute as @a[tag=spectral,limit=1,scores={cloud2=4}] if score @s nuage2 matches 30 run function ghost_power:cooldown/cd2
-execute as @a[tag=spectral,limit=1,scores={cloud3=4}] if score @s nuage3 matches 300 run function ghost_power:cooldown/cd3
-execute as @a[tag=spectral,limit=1,scores={cloud4=4}] if score @s nuage4 matches 800 run function ghost_power:cooldown/cd4
+execute as @a[tag=spectral,limit=1,scores={cloud1=4,nuage1=100}] run function ghost_power:cooldown/cd1
+execute as @a[tag=spectral,limit=1,scores={cloud0=4,nuage0=400}] run function ghost_power:cooldown/cd0
+execute as @a[tag=spectral,limit=1,scores={cloud2=4,nuage2=30}] run function ghost_power:cooldown/cd2
+execute as @a[tag=spectral,limit=1,scores={cloud3=4,nuage3=300}] run function ghost_power:cooldown/cd3
+execute as @a[tag=spectral,limit=1,scores={cloud4=4,nuage4=800}] run function ghost_power:cooldown/cd4
 
 
-execute as @a[tag=spectral,limit=1,scores={nivulu0=4}] if score @s nuage0 matches 400 run function ghost_power:cooldown/cd0-h
-execute as @a[tag=spectral,limit=1,scores={nivulu1=4}] if score @s nuage1 matches 100 run function ghost_power:cooldown/cd1-h
+execute as @a[tag=spectral,limit=1,scores={nivulu0=4,nuage0=400}] run function ghost_power:cooldown/cd0-h
+execute as @a[tag=spectral,limit=1,scores={nivulu1=4,nuage1=100}] run function ghost_power:cooldown/cd1-h
 
 
 ### AFFICHAGE 
@@ -66,19 +61,18 @@ execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team join noc
 
 
 ### UTILISATION DES CAPACITEES
-execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud0 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/slot0
-execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud1 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/slot1
-execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud2 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/slot2
-execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud3 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/slot3
-
-execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud4 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=!hybrid,scores={active=1},nbt={SelectedItemSlot:4},limit=1] run function ghost_power:slot/slot4
+execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud0 matches 4 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/slot0
+execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud1 matches 4 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/slot1
+execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud2 matches 4 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/slot2
+execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud3 matches 4 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/slot3
+execute unless score @a[tag=spectral,tag=!hybrid,limit=1] cloud4 matches 4 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:4},limit=1] run function ghost_power:slot/slot4
 
 
 ### HYBRID SLOT
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu0 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/hybrid/slot0
-execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu1 matches 4 run execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/hybrid/slot1
-execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/hybrid/slot2
-execute as @a[gamemode=!spectator,tag=spectral,tag=hybrid,scores={active=1},nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/hybrid/slot3
+execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu0 matches 4 run execute as @a[tag=spectral,tag=hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:0},limit=1] run function ghost_power:slot/hybrid/slot0
+execute unless score @a[tag=spectral,tag=hybrid,limit=1] nivulu1 matches 4 run execute as @a[tag=spectral,tag=hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:1},limit=1] run function ghost_power:slot/hybrid/slot1
+execute as @a[tag=spectral,tag=hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:2},limit=1] run function ghost_power:slot/hybrid/slot2
+execute as @a[tag=spectral,tag=hybrid,scores={active=1},gamemode=!spectator,nbt={SelectedItemSlot:3},limit=1] run function ghost_power:slot/hybrid/slot3
 
 
 
@@ -105,8 +99,6 @@ execute if score @a[tag=spectral,limit=1] energy matches 0..9 run team join cool
 
 
 
-
-
 scoreboard players set @a[tag=spectral] drop1 0
 scoreboard players set @a[tag=spectral] drop2 0
 
@@ -126,20 +118,14 @@ execute as @a[tag=spectral,limit=1] run title @s actionbar ["",{"text":"Energie 
 scoreboard players add @a[tag=spectral,limit=1,scores={energy=0..99}] recharge 1
 scoreboard players set @a[tag=spectral,limit=1,scores={energy=100}] recharge 0
 
-execute if score @a[tag=spectral,limit=1,scores={active=0}] recharge matches 10..10 run scoreboard players add @a[tag=spectral,limit=1,scores={energy=..99}] energy 1
-execute if score @a[tag=spectral,limit=1,scores={active=0}] recharge matches 10..100 run execute as @a[tag=spectral,scores={active=0,recharge=10..}] run scoreboard players set @s recharge 0
+scoreboard players add @a[tag=spectral,limit=1,scores={active=0,recharge=10,energy=..99}] energy 1
+scoreboard players set @a[tag=spectral,limit=1,scores={active=0,recharge=10..}] recharge 0
 
+scoreboard players add @a[tag=hybrid,limit=1,scores={active=1,recharge=80,energy=..99}] energy 1
+scoreboard players set @a[tag=hybrid,limit=1,scores={active=1,recharge=80..}] recharge 0
 
-execute if score @a[tag=hybrid,limit=1,scores={active=1}] recharge matches 80..80 run execute as @a[tag=hybrid,scores={active=1,recharge=80}] run scoreboard players add @a[tag=spectral,tag=hybrid,limit=1,scores={energy=..99}] energy 1
-execute if score @a[tag=hybrid,limit=1,scores={active=1}] recharge matches 80..100 run execute as @a[tag=hybrid,scores={active=1,recharge=80..}] run scoreboard players set @s recharge 0
-
-execute if score @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1}] recharge matches 60..60 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1,recharge=60}] run scoreboard players add @a[tag=spectral,tag=!hybrid,limit=1,scores={energy=..99}] energy 1
-execute if score @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1}] recharge matches 60..100 run execute as @a[tag=spectral,tag=!hybrid,scores={active=1,recharge=60..}] run scoreboard players set @s recharge 0
-
-
-scoreboard players set @a[tag=spectral,tag=!hybrid,limit=1,scores={recharge=60..}] recharge 0
-scoreboard players set @a[tag=spectral,tag=hybrid,limit=1,scores={recharge=80..}] recharge 0
-
+scoreboard players add @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1,recharge=60,energy=..99}] energy 1
+scoreboard players set @a[tag=spectral,tag=!hybrid,limit=1,scores={active=1,recharge=60..}] recharge 0
 
 
 
@@ -150,6 +136,7 @@ execute as @a[tag=spectral,tag=no_inv,tag=!hybrid,tag=!pos,limit=1,scores={energ
 
 ### Invisibility
 effect give @p[tag=spectral,tag=inv] invisibility 5 5 true
+
 
 ### POSSESSION
 execute if entity @a[tag=pos] unless entity @e[tag=possessed] run function ghost_power:possession/fin_possession
@@ -182,9 +169,9 @@ effect give @a[tag=hybrid] invisibility 2 255 true
 execute as @a[tag=hybrid] at @a[tag=hybrid] run particle cloud ^ ^0.4 ^ 0 0.4 0 0.05 2 force
 
 
-execute if entity @a[tag=hybrid,limit=1,nbt=!{Inventory:[{Slot:103b,id:":player_head",tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}"},SkullOwner:{Id:[I;-648657094,119099104,-1571011330,1324342760],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZmMzEwOWQ0YWNjZWFiODJiZTRkZjIwMmE5MjI3YTRlYzhmNjk1YzM2NzQyYmZlOWVlYTZlNjNjMGQzYjcxMiJ9fX0="}]}},Enchantments:[{}]}}]}] run item replace entity @a[tag=hybrid] armor.head with player_head{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}"},SkullOwner:{Id:[I;-648657094,119099104,-1571011330,1324342760],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZmMzEwOWQ0YWNjZWFiODJiZTRkZjIwMmE5MjI3YTRlYzhmNjk1YzM2NzQyYmZlOWVlYTZlNjNjMGQzYjcxMiJ9fX0="}]}},Enchantments:[{}]}
+item replace entity @a[tag=hybrid] armor.head with player_head{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}"},SkullOwner:{Id:[I;-648657094,119099104,-1571011330,1324342760],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZmMzEwOWQ0YWNjZWFiODJiZTRkZjIwMmE5MjI3YTRlYzhmNjk1YzM2NzQyYmZlOWVlYTZlNjNjMGQzYjcxMiJ9fX0="}]}},Enchantments:[{}],ghost_skull: 1b}
 
-execute if entity @a[tag=hybrid,limit=1,nbt=!{Inventory:[{Slot:102b,id:":leather_chestplate",tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}",color:16777215},Enchantments:[{}]}}]}] run item replace entity @a[tag=hybrid] armor.chest with leather_chestplate{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}",color:16777215},Enchantments:[{}]}
+execute if entity @a[tag=hybrid,limit=1] run item replace entity @a[tag=hybrid] armor.chest with leather_chestplate{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}",color:16777215},Enchantments:[{}],ghost_chest: 1b}
 
 
 ### HAUNTING
@@ -207,8 +194,7 @@ execute as @a[tag=spectral,scores={active=0}] run tag @s add no_inv
 
 
 ### Killing object
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:lime_dye",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability OFF\"}"}}}}]
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:gray_dye",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§3Ability ON\"}"}}}}]
-
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:leather_chestplate",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}",color:16777215},Enchantments:[{}]}}}]
-execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{id:"minecraft:player_head",Count:1b,tag:{HideFlags:3,Unbreakable:1,display:{Name:"{\"text\":\"§2Hybrid Form\"}"},SkullOwner:{Id:[I;-648657094,119099104,-1571011330,1324342760],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZmMzEwOWQ0YWNjZWFiODJiZTRkZjIwMmE5MjI3YTRlYzhmNjk1YzM2NzQyYmZlOWVlYTZlNjNjMGQzYjcxMiJ9fX0="}]}},Enchantments:[{}]}}}]
+execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{tag:{active_power:1b}}}]
+execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{tag:{active_power:0b}}}]
+execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{tag:{ghost_chest:1b}}}]
+execute as @a[tag=spectral,limit=1] at @s run kill @e[distance=..10,nbt={Item:{tag:{ghost_skull:1b}}}]

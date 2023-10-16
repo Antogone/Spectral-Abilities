@@ -8,7 +8,7 @@ execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#m
 execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..2,sort=nearest] run effect give @s weakness 10 0 true
 
 
-# Check for collisions with Creepers
+# Check for collisions 
 execute if entity @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..1.5] run tag @s add hit
 
 # Check for collisions with blocks

@@ -25,4 +25,3 @@ team leave Possession
 team join cooldown Possession
 scoreboard players set @a[tag=spectral] cloud4 4
 scoreboard players set @a[tag=spectral] nuage4 400
-scoreboard players set @p[tag=spectral] sneak 0
