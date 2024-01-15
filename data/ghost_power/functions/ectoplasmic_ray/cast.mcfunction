@@ -4,14 +4,8 @@ execute as @a[scores={energy=..9},tag=spectral] run tellraw @s {"text":"You don'
 execute as @a[scores={energy=..9},tag=spectral] run return 0
 scoreboard players remove @e[tag=spectral,scores={energy=10..}] energy 10
 
-
-# Summon a ray at the caster
 summon marker ~ ~ ~ {Tags: [ray]}
-
-# Position the ray at the caster's eyes and copy their facing
 execute anchored eyes rotated as @s run tp @e[tag=ray,limit=1,sort=nearest] ^ ^ ^ ~ ~
-
-# Process the ray
 execute as @e[tag=ray,limit=1,sort=nearest] run function ghost_power:ectoplasmic_ray/process
 
 team leave Ectoplasmic_Ray

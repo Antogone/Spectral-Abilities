@@ -47,7 +47,6 @@ execute unless score @a[tag=spectral,limit=1] cloud4 matches 4 run team leave Po
 execute unless score @a[tag=spectral,limit=1] nivulu0 matches 4 run team leave Ectoplasmic_Ray
 execute unless score @a[tag=spectral,limit=1] nivulu0 matches 4 run team join nochoice Ectoplasmic_Ray
 
-
 execute unless score @a[tag=spectral,limit=1] nivulu1 matches 4 run team leave Mind_Reading
 execute unless score @a[tag=spectral,limit=1] nivulu1 matches 4 run team join nochoice Mind_Reading
 

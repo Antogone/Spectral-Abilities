@@ -20,7 +20,7 @@ execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team leave Ect
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cooldown Mind_Reading
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cooldown Ectoplasmic_Ray
 
-execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1] at @s run function ghost_power:hybrid_form/mind_reading
+execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1,scores={energy=10..}] at @s run function ghost_power:hybrid_form/mind_reading
 
 
 scoreboard players set @p[tag=spectral,limit=1] sneak 0

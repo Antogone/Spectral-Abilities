@@ -25,5 +25,5 @@ execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join coo
 
 
 
-execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1] at @s run function ghost_power:ghost_form/activation
+execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1,scores={energy=15..}] at @s run function ghost_power:ghost_form/activation
 scoreboard players set @a sneak 0

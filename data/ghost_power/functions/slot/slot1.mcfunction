@@ -25,7 +25,7 @@ execute if score @a[tag=spectral,limit=1] energy matches 1..14 run team join coo
 
 
 
-execute if score @a[tag=no_inv,limit=1] sneak matches 1..2 run execute as @a[tag=no_inv,limit=1] at @s run function ghost_power:invisibility/invisibility
+execute if score @a[tag=no_inv,limit=1] sneak matches 1..2 run execute as @a[tag=no_inv,limit=1,scores={energy=15..}] at @s run function ghost_power:invisibility/invisibility
 execute if score @a[tag=inv,limit=1] sneak matches 1..2 run execute as @a[tag=inv,limit=1] at @s run function ghost_power:invisibility/normal
 
 scoreboard players set @p[tag=spectral,limit=1] sneak 0

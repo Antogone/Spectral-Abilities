@@ -20,5 +20,5 @@ execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cool
 execute if score @a[tag=spectral,limit=1] energy matches 1..9 run team join cooldown Ectoplasmic_Ray
 
 
-execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1] at @s run function ghost_power:ectoplasmic_ray/cast
+execute if score @a[tag=spectral,limit=1] sneak matches 1..2 run execute as @a[tag=spectral,limit=1,scores={energy=10..}] at @s run function ghost_power:ectoplasmic_ray/cast
 scoreboard players set @a[tag=spectral] sneak 0

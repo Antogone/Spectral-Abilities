@@ -8,14 +8,10 @@ execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#m
 execute as @e[tag=ray,limit=1] run execute as @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..2,sort=nearest] run effect give @s weakness 10 0 true
 
 
-# Check for collisions 
 execute if entity @e[tag=!ray,tag=!spectral,type=!#minecraft:dontharm,distance=..1.5] run tag @s add hit
 
-# Check for collisions with blocks
 execute unless block ~ ~ ~ #minecraft:ray_permeable run tag @s add hitBlock
 
-# Decrease the number of steps remaining
 scoreboard players remove @s steps 1
 
-# Recurse until we hit something or run out of steps
 execute as @s[tag=!hit,tag=!hitBlock,scores={steps=1..}] at @s run function ghost_power:ectoplasmic_ray/move
